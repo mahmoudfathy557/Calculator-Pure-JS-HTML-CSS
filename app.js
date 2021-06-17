@@ -49,23 +49,19 @@ operationEl.forEach((operation) => {
 		// calculate if dis1Num && dis2Num & lastOperation  are available and equal button hadn't pressed yet but only operation button
 		if (dis1Num && dis2Num && lastOperation) {
 			// console.log('dis1Num && dis2Num & lastOperation are available');
-			// console.log(dis1Num, 'num1');
-			// console.log(dis2Num, 'num2');
+
 			mathOperation();
 		} else {
 			// dis2Num is available and user pressed operation button
 			result = parseFloat(dis2Num);
 			// console.log(' dis2Num is available and user pressed operation button');
-			// console.log(dis1Num, 'num1');
-			// console.log(dis2Num, 'num2');
 		}
 		clearVar(operationName);
 		lastOperation = operationName;
-		// console.log(result, 'result');
-		// console.log(dis1Num, 'num1');
-		// console.log(dis2Num, 'num2');
 	});
 });
+
+// when user hits operation button once
 function clearVar(name = '') {
 	dis1Num += dis2Num + ' ' + name + ' ';
 	display1El.innerText = dis1Num;
@@ -74,6 +70,7 @@ function clearVar(name = '') {
 	tempResultEl.innerText = result;
 }
 
+// if user pressed operation button more than twice
 function mathOperation() {
 	if (lastOperation === 'x') {
 		result = parseFloat(result) * parseFloat(dis2Num);
@@ -87,7 +84,9 @@ function mathOperation() {
 }
 
 equalEl.addEventListener('click', () => {
+	// if both display1 , display2 are empty => do nothing
 	if (!dis2Num || !dis1Num) return;
+	// if there are values
 	haveDot = false;
 	mathOperation();
 	clearVar();
@@ -131,6 +130,8 @@ function renderHistory() {
 		historyListEl.appendChild(list);
 	}
 }
+
+// clear button
 clearAllEl.addEventListener('click', () => {
 	dis1Num = '';
 	dis2Num = '';
@@ -140,6 +141,7 @@ clearAllEl.addEventListener('click', () => {
 	tempResultEl.innerText = '';
 });
 
+// delete button
 clearLastEl.addEventListener('click', () => {
 	display2El.innerText = display2El.innerText.toString().slice(0, -1);
 	dis2Num = dis2Num.toString().slice(0, -1);
