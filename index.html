@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="styles.css">
+ <title>Calculator</title>
+</head>
+<body>
+ <div class="container">
+    <p>
+      This component works exactly like the calculator you know. Click any number to start calculating!
+    </p>
+    <div class="calculator">
+       <div class="display-result">
+        <div class="display-1">0</div>
+        <div class="display-2">0</div>
+        <div class="temp-result"></div>
+        <div class="open-history">
+         <img src="../history.svg" alt="">
+         </div>
+      </div>
+
+ 
+      <div class="keys">
+        <button class="button operation">+</button>
+        <button class="button operation">-</button>
+        <button class="button operation">x</button>
+        <button class="button operation">/</button>
+        <button class="button number" >8</button>
+        <button class="button number" >9</button>
+        <button class="button number" >7</button>
+        <button class="button delete" >DEL</button>
+        <button class="button number" >4</button>
+        <button class="button number" >5</button>
+        <button class="button number" >6</button>
+        <button class="button number" >1</button>
+        <button class="button number" >2</button>
+        <button class="button number" >3</button>
+        <button class="button btn-0 number" >0</button>
+        <button class="button number dot">.</button>
+        <button class="button clear">AC</button>
+        <button class="button key-equal"  >=</button>
+      </div>
+
+      <div class="history-modal-container" id="history-modal-container">
+       <button class="cancel-history">
+         <img src="../cancel (2).svg" alt="cancel">
+        </button>
+       <div class="modal">
+        <div class="history-list">
+          
+        </div>
+        <button class="delete-history">
+         <img src="../trash.svg" alt="trash">
+        </button>
+       </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="./app.js"></script>
+</body>
+</html>
