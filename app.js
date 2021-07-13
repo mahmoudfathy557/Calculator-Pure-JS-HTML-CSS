@@ -29,11 +29,11 @@ let historyArr = [];
 
 numbersEl.forEach((number) => {
 	number.addEventListener('click', (e) => {
-		// check if there are more than one dot at a number
+		// check if there is more than one dot at a number
 		if (e.target.innerText === '.' && !haveDot) {
 			haveDot = true;
 		} else if (e.target.innerText === '.' && haveDot) return;
-		// assigning number or dot to dis2num
+		//  assigning numbers to dis2num and display them at display2El
 		dis2Num += e.target.innerText;
 		display2El.innerText = dis2Num;
 	});
@@ -42,10 +42,10 @@ numbersEl.forEach((number) => {
 operationEl.forEach((operation) => {
 	operation.addEventListener('click', (e) => {
 		if (!dis2Num) return;
-		// remove dot flag
+		// remove dot flag to do operation by adding, subtracting, ...etc
 		haveDot = false;
 		// capture type of operation
-		const operationName = e.target.innerText;
+		const operationType = e.target.innerText;
 		// calculate if dis1Num && dis2Num & lastOperation  are available and equal button hadn't pressed yet but only operation button
 		if (dis1Num && dis2Num && lastOperation) {
 			// console.log('dis1Num && dis2Num & lastOperation are available');
@@ -56,14 +56,14 @@ operationEl.forEach((operation) => {
 			result = parseFloat(dis2Num);
 			// console.log(' dis2Num is available and user pressed operation button');
 		}
-		clearVar(operationName);
-		lastOperation = operationName;
+		clearVar(operationType);
+		lastOperation = operationType;
 	});
 });
 
 // when user hits operation button once
-function clearVar(name = '') {
-	dis1Num += dis2Num + ' ' + name + ' ';
+function clearVar(type = '') {
+	dis1Num += dis2Num + ' ' + type + ' ';
 	display1El.innerText = dis1Num;
 	display2El.innerText = '';
 	dis2Num = '';
@@ -90,7 +90,7 @@ equalEl.addEventListener('click', () => {
 	haveDot = false;
 	mathOperation();
 	clearVar();
-	display2El.innerText = result.toFixed(4);
+	display2El.innerText = result;
 
 	tempResultEl.innerText = '';
 	dis2Num = result;
